@@ -1,7 +1,7 @@
 import connectDB from "@/DB/connectDB";
 import AuthCheck from "@/middleware/AuthCheck";
 import { NextResponse } from "next/server";
-import Category from "@/model/Category";
+import Orders from "@/model/Orders";
 
 
 export const dynamic = 'force-dynamic'
@@ -14,16 +14,16 @@ export async function GET(req: Request) {
     
 
     
-      const getData = await Category.find({});
+      const getData = await Orders.find({orderStatus:"pending"});
       
       if (getData) {
         return NextResponse.json({success  :true , data : getData});
       } else {
-        return NextResponse.json({status: 204 , success: false, message: 'No categories found.' });
+        return NextResponse.json({status: 204 , success: false, message: 'No pending orders found.' });
       }
    
   } catch (error) {
-    console.log('Error in getting all categories:', error);
+    console.log('Error in getting pending orders:', error);
     return NextResponse.json({status : 500 , success: false, message: 'Something went wrong. Please try again!' });
   }
 }
