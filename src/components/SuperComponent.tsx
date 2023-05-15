@@ -14,6 +14,10 @@ export default function SuperComponent() {
             return <ProductDataTable />
         case 'activeCategories':
             return <CategoryDataTable/>
+        case 'activePendingOrders':
+            return <CategoryDataTable/>
+        case 'activeCompletedOrders':
+            return <CategoryDataTable/>
         default:
             return <TileContainer />;
     }
