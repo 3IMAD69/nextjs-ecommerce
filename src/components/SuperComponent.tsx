@@ -4,6 +4,9 @@ import { RootState } from '@/Store/store'
 import TileContainer from './TileContainer';
 import ProductDataTable from './ProductDataTable';
 import CategoryDataTable from './CategoryDataTable';
+import PendingOrderDataTable from './PendingOrderDataTable';
+import CompletedOrderDataTable from './CompletedOrderDataTable';
+import RejectedOrderDataTable from './RejectedOrderDataTable';
 
 export default function SuperComponent() {
     const navActive = useSelector((state: RootState) => state.AdminNav.ActiveNav)
@@ -15,9 +18,12 @@ export default function SuperComponent() {
         case 'activeCategories':
             return <CategoryDataTable/>
         case 'activePendingOrders':
-            return <CategoryDataTable/>
+            return <PendingOrderDataTable/>
         case 'activeCompletedOrders':
-            return <CategoryDataTable/>
+            return <CompletedOrderDataTable/>
+        case 'activeRejectedOrders':
+            return <RejectedOrderDataTable/>
+            
         default:
             return <TileContainer />;
     }

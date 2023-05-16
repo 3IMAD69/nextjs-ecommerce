@@ -10,6 +10,7 @@ export async function PUT(req: Request) {
 
     if (isAuthenticated === 'admin') {
       const data = await req.json();
+      console.log(data)
       const  { _id  , orderStatus } = data
 
       const saveData = await Orders.findOneAndUpdate(_id , { orderStatus : orderStatus   }  , { new: true });

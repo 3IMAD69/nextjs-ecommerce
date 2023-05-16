@@ -27,6 +27,7 @@ export default function AdminSidebar() {
                     <li className='py-3 px-1 mb-3'><Link href={'/category/add-category'} className='flex items-center justify-center'> <IoIosAddCircle className='mx-2' /> Add Category</Link></li>
                     <li onClick={() => dispatch(setNavActive('activePendingOrders'))} className='py-3 px-1 mb-3'><button className='flex items-center justify-center'> <GiLoincloth className='mx-2' />  Pending Orders</button></li>
                     <li onClick={() => dispatch(setNavActive('activeCompletedOrders'))} className='py-3 px-1 mb-3'><button className='flex items-center justify-center'> <GiLoincloth className='mx-2' />Completed Orders</button></li>
+                    <li onClick={() => dispatch(setNavActive('activeRejectedOrders'))} className='py-3 px-1 mb-3'><button className='flex items-center justify-center'> <GiLoincloth className='mx-2' />Rejected Orders</button></li>
                 </ul>
             </div>
 

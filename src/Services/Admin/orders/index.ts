@@ -44,6 +44,18 @@ export const add_new_order = async (formData: any) => {
     }
   }
 
+  export const get_rejected_orders = async () => {
+    try {
+      const res = await fetch('/api/Admin/orders/getRejectedOrders', {
+        method: 'GET',
+      });
+      const data = await res.json();
+      return data;
+    } catch (error) {
+      console.log('Error in getting all orders (service) =>', error)
+    }
+  }
+
   export const delete_order = async (id:string) => {
     try {
       const res = await fetch(`/api/Admin/orders/delete-order?id=${id}`, {
@@ -63,7 +75,7 @@ export const add_new_order = async (formData: any) => {
 
   export const update_order = async (formData : any) => {
     try {
-      const res = await fetch(`/api/Admin/orders/update-order`, {
+      const res = await fetch(`/api/Admin/orders/updateOrderStatus`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${Cookies.get('token')}`,
@@ -78,6 +90,7 @@ export const add_new_order = async (formData: any) => {
       console.log('Error in updating order (service) =>', error)
     }
   }
+
 
 //   export const get_product_by_id = async (id:string) => {
 //     try {
